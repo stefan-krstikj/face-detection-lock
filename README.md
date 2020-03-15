@@ -1,7 +1,4 @@
-#Launch Command:
-`
-python3 webcam_cv3.py
-`
+
 
 # TempName
 
