@@ -4,7 +4,10 @@
 #	--recognizer output/recognizer.pickle \
 #	--le output/le.pickle
 
+# Komentiraj go kodot so lcd za da raboti, ako nemas povrzano LCD ekran
+
 # import the necessary packages
+from lcd import lcddriver
 from imutils.video import VideoStream
 from imutils.video import FPS
 import numpy as np
@@ -14,6 +17,12 @@ import pickle
 import time
 import cv2
 import os
+import logging
+
+# initialize lcd
+lcd = lcddriver.lcd()
+lcd.centered = 1
+lcd.lcd_display_string("Scanning...", 1)
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -116,6 +125,14 @@ while True:
 				(0, 0, 255), 2)
 			cv2.putText(frame, text, (startX, y),
 				cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 255), 2)
+
+			# display detected face to screen
+			logging.info("Detected: " + name)
+			lcd.lcd_display_string("Welcome", 1)
+			lcd.lcd_display_string(name, 2)
+			time.sleep(10)
+			lcd.lcd_clear()
+			lcd.lcd_display_string("Scanning...", 1)
 
 	# update the FPS counter
 	fps.update()
