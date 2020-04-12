@@ -129,7 +129,7 @@ while True:
 			# display detected face to screen
 			logging.info("Detected: " + name)
 			lcd.lcd_display_string("Welcome", 1)
-			lcd.lcd_display_string(name, 2)
+			lcd.lcd_display_string(name, 2) 
 			time.sleep(10)
 			lcd.lcd_clear()
 			lcd.lcd_display_string("Scanning...", 1)
