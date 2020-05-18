@@ -11,6 +11,23 @@ git submodule init
 git submodule update
 ```
 
+Potrebno e da imate pip / pip3 i da gi instalirate slednite
+```
+pip3 install opencv-python
+pip3 install imutils
+pip3 install smbus
+pip3 install numpy
+sudo apt-get install python3-smbus
+```
+
+Potrebno e odkako ke go klonirate submodule-ot da smenite vo prvite linii vo *lcddriver.py*
+```
+from lcd import i2c_lib
+
+ADDRESS = 0x3f
+```
+
+
 # TempName
 
 ##TODO
