@@ -20,9 +20,9 @@ import os
 import logging
 
 # initialize lcd
-lcd = lcddriver.lcd()
-lcd.centered = 1
-lcd.lcd_display_string("Scanning...", 1)
+# lcd = lcddriver.lcd()
+# lcd.centered = 1
+# lcd.lcd_display_string("Scanning...", 1)
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -55,8 +55,8 @@ le = pickle.loads(open(args["le"], "rb").read())
 
 # initialize the video stream, then allow the camera sensor to warm up
 print("[INFO] starting video stream...")
-vs = VideoStream(src=0).start()
-time.sleep(2.0)
+vs = cv2.VideoCapture(0)
+# time.sleep(2.0)
 
 # start the FPS throughput estimator
 fps = FPS().start()
@@ -64,7 +64,7 @@ fps = FPS().start()
 # loop over frames from the video file stream
 while True:
 	# grab the frame from the threaded video stream
-	frame = vs.read()
+	ret, frame = vs.read()
 
 	# resize the frame to have a width of 600 pixels (while
 	# maintaining the aspect ratio), and then grab the image
@@ -128,11 +128,11 @@ while True:
 
 			# display detected face to screen
 			logging.info("Detected: " + name)
-			lcd.lcd_display_string("Welcome", 1)
-			lcd.lcd_display_string(name, 2) 
-			time.sleep(10)
-			lcd.lcd_clear()
-			lcd.lcd_display_string("Scanning...", 1)
+			# lcd.lcd_display_string("Welcome", 1)
+			# lcd.lcd_display_string(name, 2)
+			# time.sleep(10)
+			# lcd.lcd_clear()
+			# lcd.lcd_display_string("Scanning...", 1)
 
 	# update the FPS counter
 	fps.update()
