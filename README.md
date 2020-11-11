@@ -5,6 +5,11 @@ Size Limit is a performance budget tool for JavaScript. It checks every commit
 on CI, calculates the real cost of your JS for end-users and throws an error
 if the cost exceeds the limit.
 
+<p align="center">
+  <img src="./images/img_authorized_lcd.png" alt="Image Authorized" width="400">
+  <img src="./images/img_unauthorized_lcd.png" alt="Image Unauthorized" width="500">
+</p>
+
 ### Dependencies
 You need to install the following dependencies to get the project running
 * opencv-python
