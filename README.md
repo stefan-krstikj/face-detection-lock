@@ -1,39 +1,39 @@
-#Launch Command:
-`
-python3 webcam_cv3.py
-`
-##ВАЖНО:
-#Odkako ke go klonirate repo-to, treba da gi izvrsite slednite komandi za da go zemete LCD Driver-ot, bidejki driverot e vsusnost zemen od drugo repo na drug github (ova moze da se napravi i so COPY-PASTE NA NEGOTOVOTO REPO, no github pravi problemi i ovoj nacin e 'pravilniot')
-```
-cd TempName
-(mozno e da treba i cd opencv-face-recognition, probajte prvo bez)
-git submodule init
-git submodule update
-```
+# Face Detection Lock
 
-Potrebno e da imate pip / pip3 i da gi instalirate slednite
-```
-pip3 install opencv-python
-pip3 install imutils
-pip3 install smbus
-pip3 install numpy
-sudo apt-get install python3-smbus
-```
+Face Detection Lock is a Python program for detecting, recognizing and authenticating faces. The result of the authentication is displayed on a 16x2 LCD Screen. 
+Size Limit is a performance budget tool for JavaScript. It checks every commit
+on CI, calculates the real cost of your JS for end-users and throws an error
+if the cost exceeds the limit.
 
-Potrebno e odkako ke go klonirate submodule-ot da smenite vo prvite linii vo *lcddriver.py*
-```
-from lcd import i2c_lib
+### Dependencies
+You need to install the following dependencies to get the project running
+* opencv-python
+* imutils
+* smbus
+* numpy
 
-ADDRESS = 0x3f
-```
+### Starting the project
+The project depends on the [lcddriver](www.example.com) repository for displaying the detected names on a screen. After pulling the repository, use the following commands
+* `cd FaceDetectionLock/`
+* `git submodule init`
+* `git submodule update`
 
+Next, make sure you go to `lcd/lcddriver.py` and change the following lines
+* `import i2c_lib` -> `from lcd import i2c_lib`
+* `ADDRESS = ` to the address for your 16x2 LCD 
 
-# TempName
+### Launch Commands:
+* Exctract the embeddings:
+`python3 extract_embeddings.py --dataset dataset --embeddings output/embeddings.pickle \
+	--detector face_detection_model --embedding-model openface_nn4.small2.v1.t7`
+* Train the model:
+`python3 train_model.py --embeddings output/embeddings.pickle \
+	--recognizer output/recognizer.pickle --le output/le.pickle`
+* Launch the program:
+`python3 recognize_video.py --detector face_detection_model \
+	--embedding-model openface_nn4.small2.v1.t7 \
+	--recognizer output/recognizer.pickle --le output/le.pickle`
 
-##TODO
-1. openCV so python sto raboti na laptop kamera ✓
-2. prefrlanje na programot na Raspberry Pi 
-3. kupuvanje na eksterna USB kamera
-4. Voveduvanje na NFC tag
-5. dopolnitelni raboti koga ke imame vreme
+## Future Plans for Development
+* Connect an NFC tag as a second way of authentication
 
