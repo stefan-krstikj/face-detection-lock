@@ -1,9 +1,6 @@
 # Face Detection Lock
 
-Face Detection Lock is a Python program for detecting, recognizing and authenticating faces. The result of the authentication is displayed on a 16x2 LCD Screen. 
-Size Limit is a performance budget tool for JavaScript. It checks every commit
-on CI, calculates the real cost of your JS for end-users and throws an error
-if the cost exceeds the limit.
+Face Detection Lock is a Python program for detecting, recognizing and authenticating faces. The result of the authentication is displayed on a 16x2 LCD Screen. The code is largely based on the code by [Adrian Rosebrock](https://github.com/jrosebr1)
 
 <p align="center">
   <img src="./images/img_authorized_lcd.png" alt="Image Authorized" width="400">
@@ -42,3 +39,5 @@ Next, make sure you go to `lcd/lcddriver.py` and change the following lines
 ## Future Plans for Development
 * Connect an NFC tag as a second way of authentication
 
+## Thank you
+* Thanks to [Adrian Rosebrock](https://github.com/jrosebr1)
