@@ -1,6 +1,6 @@
 # Face Detection Lock
 
-Face Detection Lock is a Python program for detecting, recognizing and authenticating faces. The result of the authentication is displayed on a 16x2 LCD Screen. The code is largely based on the code by [Adrian Rosebrock](https://github.com/jrosebr1)
+Face Detection Lock is a Python program for detecting, recognizing and authenticating faces. The result of the authentication is displayed on a 16x2 LCD Screen. The code is a custom implementation on the code by [Adrian Rosebrock](https://github.com/jrosebr1) found in https://www.pyimagesearch.com/2018/09/24/opencv-face-recognition/
 
 <p align="center">
   <img src="./images/img_authorized_lcd.png" alt="Image Authorized" width="400">
